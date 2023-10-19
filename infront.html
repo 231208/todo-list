@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Based todo List</title>
+    <script src="/jQuery.js"></script>
+
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+        
+    <div class="container">
+        <input type="text" id="input" placeholder="prass enter to add tasks.">
+        <ul>
+
+        </ul>
+    </div>
+
+    
+
+
+    <!-- Script tag link here -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#input').change(function(){
+                var input = $(this).val();
+                $('ul').append('<li>' + input + '<i class="fas fa-check"></i>  <i class="fas fa-trash"></i></li>');
+                $(this).val('');
+            });
+        });
+
+        $('ul').on('click', '.fa-trash', function(){
+            $(this).parent('li').fadeOut(200);
+        });
+
+        $('ul').on('click', '.fa-check', function(){
+            $(this).parent('li').toggleClass('checked');
+        });
+    </script>
+
+<script src="https://kit.fontawesome.com/83ff236601.js" crossorigin="anonymous"></script>
+</body>
+</html>
